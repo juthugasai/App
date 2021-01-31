@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import LoginScreen from './screens/LoginScreen';
+import LoginScreen2 from './screens/LoginScreen2';
+import LoginScreen3 from './screens/LoginScreen3';
+import UserScreen from './screens/UserScreen';
+import ChatScreen from './screens/ChatScreen';
+import SplashScreen from './screens/SplashScreen';
+
+
+
+
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+//import firebase from 'firebase'
+//import db from '../config';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <ChatScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const switchNavigator = createSwitchNavigator({
+  LoginScreen: { screen: LoginScreen },
+  LoginScreen2: { screen: LoginScreen2 },
+  LoginScreen3: { screen: LoginScreen3 },
+   UserScreen3: { screen: UserScreen },
 });
+const AppContainer = createAppContainer(switchNavigator);
